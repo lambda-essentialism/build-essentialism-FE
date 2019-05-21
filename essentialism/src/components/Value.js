@@ -6,6 +6,7 @@ const Value = props => {
     return (
       <div className="value">
         <h3>{props.title}</h3>
+        
       
  
       

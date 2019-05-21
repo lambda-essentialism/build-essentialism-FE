@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router,Route,Link } from "react-router-dom";
 import './App.css';
-import Values from './components/values';
+//import Values from './components/values';
 import Login from './components/login';
 import PrivateRoute from './components/privateroute'
 import ValuesList from './components/valueslist';
 import RegisterPage from './components/registration';
+//import Toggle from './components/toggle'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
      <Route path='/registration' component={RegisterPage}/>
      
     <PrivateRoute exact path='/values' component={ValuesList}/>
+
     
       
     </div>

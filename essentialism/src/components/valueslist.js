@@ -3,6 +3,7 @@ import Value from './Value'
 import { connect } from "react-redux";
 import {getData} from '../actions/index'
 import ValueForm from './addvalue'
+import Toggle from './toggle'
 
 
 class ValuesList extends React.Component {
@@ -11,32 +12,48 @@ class ValuesList extends React.Component {
 
         this.state = {
             values: [],
+          
+           
           };
+         
+          
     }
+    
 
     componentDidMount() {
    
         this.props.getData();
         
       }
-
+      
+      
+      
+      
 
     render() {
         if(this.props.fetching){
 
         }
+        
+       
       return (
      
           
           <ul><ValueForm/>
             {this.props.values.map(value => {
               return (
-                <Value
-                  title={value.title}
-              
-                  key={value.id}
-                  
-                />
+                <Toggle render={({on,toggle})=>(
+                  <div>
+                    {on && <Value title={value.title}
+               
+          
+               key={value.id}></Value>
+               }
+                    <button onClick={toggle}>{value.title}</button>
+                  </div>
+                )}>
+          </Toggle>
+                
               );
             })}
           </ul>
@@ -45,6 +62,8 @@ class ValuesList extends React.Component {
       );
     }
   }
+ 
+    
   
  const mapStateToProps=state=>{
   return{
