@@ -1,16 +1,28 @@
 import React from 'react';
-import { BrowserRouter as Router,Route } from "react-router-dom";
+import { BrowserRouter as Router,Route,Link } from "react-router-dom";
 import './App.css';
-import Values from './components/values';
+//import Values from './components/values';
 import Login from './components/login';
+import PrivateRoute from './components/privateroute'
+import ValuesList from './components/valueslist';
+import RegisterPage from './components/registration';
+//import Toggle from './components/toggle'
 
 
 function App() {
   return (
     <Router><div className="App">
-     <Login/>
-    <Route path='/values' component={Values}/>
 
+      <Link to='/'>Login</Link>
+      <Link to='/registration'>Sign Up</Link>
+      <Link to='/values'>Values</Link>
+     
+     <Route exact path='/' component={Login}/>
+     <Route path='/registration' component={RegisterPage}/>
+     
+    <PrivateRoute exact path='/values' component={ValuesList}/>
+
+    
       
     </div>
     </Router>
