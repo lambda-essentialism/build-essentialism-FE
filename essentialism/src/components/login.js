@@ -1,113 +1,16 @@
-/*import React from 'react'
+import React from 'react';
+import Loader from 'react-loader-spinner';
+import { connect } from 'react-redux';
 
-
-
-
-export default class Login extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        email : '',
-        password: ''
-      };
-    }
-    handleInputChange = (event) => {
-      const { value, name } = event.target;
-      this.setState({
-        [name]: value
-      });
-    }
-    onSubmit = (event) => {
-        event.preventDefault();
-        fetch('https://lambda-essentialism-backend.herokuapp.com/api/oauth/token', {
-          method: 'POST',
-          body: JSON.stringify(this.state),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(res => {
-          if (res.status === 200) {
-            this.props.history.push('/');
-          } else {
-            const error = new Error(res.error);
-            throw error;
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          alert('Error logging in please try again');
-        });
-      }
-    render() {
-      return (
-        <form onSubmit={this.onSubmit}>
-          <h1>Login Below!</h1>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-            required
-          />
-         <input type="submit" value="Submit"/>
-        </form>
-      );
-    }
-  }*/
-
-import React from "react";
-import { Link } from "react-router-dom";
-
-import axios from "axios";
-import { withCookies } from "react-cookie";
+import { login } from '../actions';
 
 class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = {
-      cookies: props.cookies,
-      credentials: {
-        username: "",
-        password: ""
-      },
-      token: ""
-    };
-  }
-
-  login = e => {
-    e.preventDefault();
-    axios
-      .post(
-        "https://lambda-essentialism-backend.herokuapp.com/api/oauth/token",
-        this.state.credentials
-      )
-      .then(res => {
-        console.log(res);
-        this.setState({
-          ...this.state,
-          credentials: {
-            username: "",
-            password: ""
-          }
-        });
-        this.state.cookies.set("", res.data.token);
-        this.props.history.push("/values");
-      })
-      .catch(error => console.log(error));
+  state = {
+    credentials: {
+      username: '',
+      password: ''
+    }
   };
-
- 
 
   handleChange = e => {
     this.setState({
@@ -118,35 +21,55 @@ class Login extends React.Component {
     });
   };
 
+  login = e => {
+    e.preventDefault();
+    this.props
+      .login(this.state.credentials)
+      .then(() => this.props.history.push('/values'));
+  };
+
   render() {
     return (
-      <div>
-        <form onSubmit={this.login}>
-          <div className="header" onClick={this.logout}>
-            
-          </div>
+      <div className="login-form">
+        <form className="form" onSubmit={this.login}>
+          <label for="username">Account</label>
           <input
             type="text"
             name="username"
+            placeholder="Username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
+          <label for="password">Password</label>
           <input
             type="password"
             name="password"
+            placeholder="••••••••"
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
-          <button>Log in</button>
-        </form>
-        <h3>Register for a account </h3>
+          <div className="flex-spacer" />
+          {this.props.error && <p className="error">{this.props.error}</p>}
 
-        <Link className="link" to="/Register">
-          Register
-        </Link>
+          <button>
+            {this.props.loggingIn ? (
+              <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+            ) : (
+              'Login'
+            )}
+          </button>
+        </form>
       </div>
     );
   }
 }
 
-export default withCookies(Login);
+const mapStateToProps = ({ error, loggingIn }) => ({
+  error,
+  loggingIn
+});
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);
