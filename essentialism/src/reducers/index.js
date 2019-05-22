@@ -9,11 +9,10 @@ import {
   } from '../actions';
   
   const initialState = {
-    addingFriend: false,
+    
     values: [],
     loggingIn: false,
-    deletingFriend: false,
-    editingFriend: false,
+    
     error: '',
     errorStatusCode: null,
     fetching: false,

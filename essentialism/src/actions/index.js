@@ -4,6 +4,8 @@ import axios from 'axios'
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
+const API = 'https://lambda-essentialism-backend.herokuapp.com';
+
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios.post('', creds).then(res => {
@@ -61,3 +63,21 @@ export const addValue = (value) => dispatch =>{
 
   
 }
+
+
+export const ADD_TODO = 'ADD_TODO';
+export const TODO_COMPLETE = 'TODO_COMPLETE';
+
+export const addTodo = (todo) => {
+  return {
+    type: ADD_TODO,
+    payload: todo
+  };
+};
+
+export const toggleComplete = (index) => {
+  return {
+    type: TODO_COMPLETE,
+    payload: index
+  };
+};

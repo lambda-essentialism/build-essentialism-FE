@@ -3,10 +3,71 @@
   background:#FFBA5A;
  
   /*border:solid red;*/
-  height:1000px;
+  height:100%;
   
  
 
+}
+
+header{
+  border:solid #FFBA5A;
+  
+}
+
+.logo {
+	height: 75px;
+	width: 61px;
+	border-radius: 16px;
+  background-color: #FCF9ED;
+  margin-top:10px;
+  margin-left:10px;
+ 
+}
+
+.esse {
+	height: 60px;
+	width: 36px;
+	color: #FFBA5A;
+	font-family: Arial;
+	font-size: 26px;
+	font-weight: bold;
+  line-height: 31px;
+ padding-left:12px;
+ padding-top:8px;
+
+}
+
+nav{
+ /* border:solid blue;*/
+  margin-left:10%;
+  padding-top:0px;
+ position: absolute;
+ top:30px;
+  width:800px;
+  display:flex;
+  justify-content: space-between;
+}
+
+.link{
+  height: 28px;	width: 66px;	color: #FFFFFF;	font-family: Arial;	font-size: 25px;	line-height: 29px;
+  text-decoration:none;
+ /* border:solid red;*/
+  width:100px;
+ 
+}
+.link:hover { 
+  border-bottom:1px solid #FCF9ED;
+}
+
+
+.login-form{
+ /* border:solid red;*/
+  height:1000px;
+}
+
+.registration-page{
+ /* border:solid red;*/
+  padding-bottom:30px;
 }
 
 .registration {
@@ -19,7 +80,7 @@
   margin-top:100px;
   padding-bottom:20px;
  
-  border:solid red;
+  /*border:solid red;*/
 }
 
 .welcome {
@@ -35,13 +96,148 @@
   /*border:solid red;*/
 }
 
-.inputinfo {
+.form-control {
 	height: 28px;
-	width: 114px;
-	opacity: 0.45;
+	width: 370px;
+  opacity: 0.45;
+  border-bottom:2px solid #2E2F38;
 	color: #2E2F38;
 	font-family: Arial;
 	font-size: 25px;
   line-height: 29px;
+  /*border:solid red;*/
+  padding:20px 20px 20px 20px;
+  background-color: transparent;
+  border: 0px solid;
+  /*height: 20px;*/
+ /* width: 160px;*/
+  color: #CCC;
  
+}
+/*input {
+  background-color: transparent;
+  border: 0px solid;
+  height: 20px;
+  width: 160px;
+  color: #CCC;
+}*/
+
+.form-btn{
+  /*border:solid red;*/
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-top:20px;
+  margin-left:25px;
+  margin-right:25px;
+  padding-right:5px;
+  padding-left:5px;
+}
+
+.signin-redirect{
+  height: 22px;
+    width: 310px;
+    opacity: 0.75;
+    color: #2D283D;
+    font-family: Arial;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 23px;
+    text-decoration:none;
+    padding-top:25px;
+    /*border:solid red;*/
+}
+
+.signin-redirect:hover{
+  text-decoration: underline;
+}
+.regarrow{
+  cursor: pointer;
+}
+
+.regarrow2{
+  cursor: pointer;
+  /*border:solid blue;*/
+  margin-top:20px;
+}
+
+
+.welcome-back {
+	height: 88px;
+	width: 295px;
+	color: #2D283D;
+	font-family: Arial;
+	font-size: 40px;
+	font-weight: bold;
+  line-height: 45px;
+  padding-top:20px;
+  margin-left:5%;
+}
+
+
+.login-form {
+	height: 570px;
+	width: 491px;
+	border-radius: 10px;
+	background-color: #FCF9ED;
+  box-shadow: 0 2px 50px 0 rgba(0,0,0,0.5);
+ /* border:solid red;*/
+  margin-left:10%;
+  margin-top:100px;
+  padding-bottom:20px;
+
+}
+
+.login-input1{
+ /* border:solid pink;*/
+  display:flex;
+  flex-direction: column;
+}
+
+.login-input{
+  height: 28px;
+	width: 370px;
+  opacity: 0.45;
+  border-bottom:2px solid #2E2F38;
+	color: #2E2F38;
+	font-family: Arial;
+	font-size: 25px;
+  line-height: 29px;
+  /*border:solid red;*/
+  padding:20px 20px 20px 20px;
+  background-color: transparent;
+  border: 0px solid;
+  /*height: 20px;*/
+ /* width: 160px;*/
+  color: #CCC;
+  margin:auto;
+}
+
+/*.value{
+ border:solid red;
+}*/
+
+.value-btn{
+  /*border:solid blue;*/
+  margin-top:15px;
+}
+
+.item.completed{
+  text-decoration: line-through;
+}
+
+.essentialapp{
+ /* border:solid red;*/
+  padding:10px 10px 10px 10px;
+  display:flex;
+  flex-direction: column;
+ /* flex-flow: wrap;*/
+  width:600px;
+  margin:auto;
+  height:2000px;
+}
+
+
+.current-projects{
+  color:white;
 }
