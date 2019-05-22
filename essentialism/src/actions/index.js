@@ -4,6 +4,8 @@ import axios from 'axios'
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
+const API = 'https://lambda-essentialism-backend.herokuapp.com';
+
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios.post('', creds).then(res => {

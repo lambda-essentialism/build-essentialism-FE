@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 //import { connect } from 'react-redux';
 import '../App.css';
-import axios from 'axios'
+//import axios from 'axios'
 import Register from './nextarrow1.png';
 import {login} from '../actions/index'
 
@@ -114,3 +114,6 @@ class RegisterPage extends React.Component {
 }
 
 export default RegisterPage;
+
+
+

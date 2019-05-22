@@ -1,6 +1,8 @@
 import React from 'react';
-import Loader from 'react-loader-spinner';
+//import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
+import '../App.css'
+import Register from './nextarrow1.png'
 
 import { login } from '../actions';
 
@@ -31,33 +33,29 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login-form">
+        <h1 className='welcome-back'>Welcome Back!</h1>
         <form className="form" onSubmit={this.login}>
-          <label for="username">Account</label>
-          <input
+          <label for="username"></label>
+         <div className='login-input1'> <input className='login-input'
             type="text"
             name="username"
             placeholder="Username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
-          <label for="password">Password</label>
-          <input
+          <label for="password"></label>
+          <input className='login-input'
             type="password"
             name="password"
             placeholder="••••••••"
             value={this.state.credentials.password}
             onChange={this.handleChange}
-          />
+          /></div>
           <div className="flex-spacer" />
           {this.props.error && <p className="error">{this.props.error}</p>}
 
-          <button>
-            {this.props.loggingIn ? (
-              <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
-            ) : (
-              'Login'
-            )}
-          </button>
+        
+          <img alt ='arrow' src={Register} onClick={this.login} className='regarrow2'></img>
         </form>
       </div>
     );
@@ -73,3 +71,12 @@ export default connect(
   mapStateToProps,
   { login }
 )(Login);
+
+
+/*<button>
+{this.props.loggingIn ? (
+  <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+) : (
+  'Login'
+)}
+</button>*/

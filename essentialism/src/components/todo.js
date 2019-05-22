@@ -49,7 +49,7 @@ class Todo extends React.Component {
     return (
       <div className="Projects">
         <div className="projects-header">
-          <h1>Current Projects</h1>
+          <h1 className='current-projects'>Current Projects</h1>
           <TodoForm addItem={this.addItem} />
         </div>
         <TodoList
