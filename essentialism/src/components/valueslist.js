@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import {getData} from '../actions/index'
 import ValueForm from './addvalue'
 import Toggle from './toggle'
+import Todo from './todo';
 
 
 class ValuesList extends React.Component {
@@ -39,25 +40,22 @@ class ValuesList extends React.Component {
       return (
      
           
-          <ul><ValueForm/>
+          <div className='essentialapp'><ValueForm/>
             {this.props.values.map(value => {
               return (
-                <Toggle render={({on,toggle})=>(
+              <Toggle render={({on,toggle})=>(
                   <div>
-                    {on && <Value title={value.title}
-               
-          
-               key={value.id}></Value>
+                    {on && <h1><Value title={value.title} key={value.valueid}></Value><Todo/></h1>
                }
-                    <button onClick={toggle}>{value.title}</button>
+                    <button className='value-btn' onClick={toggle}>{value.title}</button>
                   </div>
                 )}>
-          </Toggle>
+          </Toggle>    
+         
                 
               );
             })}
-          </ul>
-          
+</div>          
        
       );
     }
@@ -67,7 +65,7 @@ class ValuesList extends React.Component {
   
  const mapStateToProps=state=>{
   return{
-    values: state.values,
+  values: state.values,
   fetching:state.fetching,
   error:state.error
 

@@ -6,7 +6,7 @@ import {addValue} from '../actions'
 class ValueForm extends Component {
  state={
    value:{
-     title:'',
+     title:''
     
    }
  }
@@ -35,7 +35,7 @@ class ValueForm extends Component {
 
   render() {
     return (
-      <div className="value">
+      <div className="addvalue">
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.changeHandler}

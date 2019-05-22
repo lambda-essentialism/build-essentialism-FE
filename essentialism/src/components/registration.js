@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 //import { connect } from 'react-redux';
-import '../App.css'
-
+import '../App.css';
+import axios from 'axios'
+import Register from './nextarrow1.png';
+import {login} from '../actions/index'
 
 class RegisterPage extends React.Component {
     constructor(props) {
@@ -10,18 +12,21 @@ class RegisterPage extends React.Component {
 
         this.state = {
             user: {
-               
+                firstname:'',
+                lastname:'',
+                email:"",
                 username: '',
                 password: ''
             },
             submitted: false
         };
 
-       // this.handleChange = this.handleChange.bind(this);
-       // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-   /* handleChange(event) {
+
+    handleChange(event) {
         const { name, value } = event.target;
         const { user } = this.state;
         this.setState({
@@ -39,9 +44,13 @@ class RegisterPage extends React.Component {
         const { user } = this.state;
         const { dispatch } = this.props;
         if (user.firstName && user.lastName && user.username && user.password) {
-            dispatch(userActions.register(user));
+            dispatch(login.register(user));
         }
-    }*/
+    }
+
+  
+
+
 
     render() {
 
@@ -70,6 +79,13 @@ class RegisterPage extends React.Component {
                             <div className="help-block">Last Name is required</div>
                         }
                     </div>
+                    <div className={'form-group' + (submitted && !user.email ? ' has-error' : '')}>
+                        <label className='inputinfo' htmlFor="email"></label>
+                        <input type="text" className="form-control" name="email" placeholder='Email' value={user.email} onChange={this.handleChange} />
+                        {submitted && !user.email &&
+                            <div className="help-block">Username is required</div>
+                        }
+                    </div>
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
                         <label className='inputinfo' htmlFor="username"></label>
                         <input type="text" className="form-control" name="username" placeholder='Username' value={user.username} onChange={this.handleChange} />
@@ -85,9 +101,9 @@ class RegisterPage extends React.Component {
                         }
                     </div>
                     <div className="form-btn">
-                        <button className="btn btn-primary">Register</button>
-                        {registering && 
-                            <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                    <img alt ='arrow' src={Register} onClick={this.handleSubmit} className='regarrow'></img>
+                        {registering 
+                            
                         }
                         <Link to="/" className="signin-redirect">Already have an Account? Sign In</Link>
                     </div>
