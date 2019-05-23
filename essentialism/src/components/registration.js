@@ -7,7 +7,7 @@ import Register from './nextarrow1.png';
 //import {login} from '../actions/index'
 import axios from 'axios'
 
-const API = 'https://lambda-essentialism-backend.herokuapp.com/api';
+const API = 'https://lambda-essentialism-backend.herokuapp.com/api'
 
 class RegisterPage extends React.Component {
     constructor(props) {

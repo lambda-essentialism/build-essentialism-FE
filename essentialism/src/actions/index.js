@@ -44,8 +44,8 @@ export const getData = () => dispatch =>{
 export const ADD_VALUE='ADD_VALUE'
 export const ADD_VALUE_FAIL='ADD_VALUE_FAIL'
 
-export const addValue = () => dispatch =>{
-  axios.post('', )
+export const addValue = value => dispatch =>{
+  axios.post('https://lambda-essentialism-backend.herokuapp.com/api/values/',value )
       .then(res =>{
           dispatch({ 
               type:ADD_VALUE,
