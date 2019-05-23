@@ -232,7 +232,7 @@ nav{
  flex-flow: wrap;
   width:820px;
   margin:auto;
-  height:2000px;
+  height:1000px;
 }
 
 .value-btn{
@@ -247,6 +247,8 @@ nav{
   font-weight: bold;
   font-size: 18px;
   height:55px;
+  cursor: pointer;
+ border:2px solid #FCF9ED;
 
 }
 
