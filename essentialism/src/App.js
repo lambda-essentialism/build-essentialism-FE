@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router,Route,Link } from "react-router-dom";
 import './App.css';
 //import Values from './components/values';
-import Login from './components/login';
+import Login from './components/login2';
 import PrivateRoute from './components/privateroute'
 import ValuesList from './components/valueslist';
 import RegisterPage from './components/registration';
@@ -15,8 +15,8 @@ function App() {
     <Router><div className="App">
 
       <header><div className='logo'><div className='esse'><div>ES</div><div>SE</div></div></div>
-      <nav><Link className='link' to='//essentialism-jason.netlify.com/#home' >Home</Link>
-      <Link className='link' to='//essentialism-jason.netlify.com/#about'>About</Link>
+      <nav><Link className='link' to='//essentialism-jason.netlify.com/#home' onClick='https://essentialism-jason.netlify.com/#home' >Home</Link>
+      <Link className='link' to='//essentialism-jason.netlify.com/#about' onClick='https://essentialism-jason.netlify.com/#about'>About Us</Link>
       <Link className='link' to=''>Contact</Link>
       <Link className='link' to='/'>Sign In</Link>
       <Link className='link' to='/registration'>Join</Link></nav></header>
