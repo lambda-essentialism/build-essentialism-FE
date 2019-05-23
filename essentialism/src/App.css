@@ -217,27 +217,50 @@ nav{
  border:solid red;
 }*/
 
-.value-btn{
-  /*border:solid blue;*/
-  margin-top:15px;
-}
+
 
 .item.completed{
   text-decoration: line-through;
 }
 
 .essentialapp{
- /* border:solid red;*/
+ /*border:solid red;*/
   padding:10px 10px 10px 10px;
   display:flex;
-  flex-direction: column;
- /* flex-flow: wrap;*/
-  width:600px;
+  /*flex-direction: column;*/
+ 
+ flex-flow: wrap;
+  width:820px;
   margin:auto;
   height:2000px;
 }
 
+.value-btn{
+  /*border:solid blue;*/
+  width:400px;
+  /*margin-top:15px;*/
+  margin:15px 5px 5px 5px;
+  border-radius: 16px;
+  background-color:#FFBA5A;
+  color:  #FCF9ED;
+	font-family: Arial;
+  font-weight: bold;
+  font-size: 18px;
+  height:55px;
+
+}
+
 
 .current-projects{
-  color:white;
+  border-radius: 16px;
+  background-color: #FCF9ED;
+  margin-top:10px;
+  
+  color: #FFBA5A;
+	font-family: Arial;
+	font-size: 26px;
+  font-weight: bold;
+  width:300px;
+  margin-left:auto;
+  margin-right:auto;
 }
