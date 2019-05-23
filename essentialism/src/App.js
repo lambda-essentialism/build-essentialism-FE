@@ -15,8 +15,8 @@ function App() {
     <Router><div className="App">
 
       <header><div className='logo'><div className='esse'><div>ES</div><div>SE</div></div></div>
-      <nav><Link className='link' to='//https://essentialism-jason.netlify.com/#home' >Home</Link>
-      <Link className='link' to='//https://essentialism-jason.netlify.com/#about'>About</Link>
+      <nav><Link className='link' to='//essentialism-jason.netlify.com/#home' >Home</Link>
+      <Link className='link' to='//essentialism-jason.netlify.com/#about'>About</Link>
       <Link className='link' to=''>Contact</Link>
       <Link className='link' to='/'>Sign In</Link>
       <Link className='link' to='/registration'>Join</Link></nav></header>
