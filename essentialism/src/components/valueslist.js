@@ -39,13 +39,13 @@ class ValuesList extends React.Component {
        
       return (
      
-          
-          <div className='essentialapp'><ValueForm/>
+      <div><ValueForm/>
+          <div className='essentialapp'>
             {this.props.values.map(value => {
               return (
               <Toggle render={({on,toggle})=>(
                   <div>
-                    {on && <h1><Value title={value.title} key={value.valueid}></Value><Todo/></h1>
+                    {on && <h1><Value /*title={value.title}*/ key={value.valueid}></Value><Todo/></h1>
                }
                     <button className='value-btn' onClick={toggle}>{value.title}</button>
                   </div>
@@ -54,7 +54,7 @@ class ValuesList extends React.Component {
          
                 
               );
-            })}
+            })}</div> 
 </div>          
        
       );
