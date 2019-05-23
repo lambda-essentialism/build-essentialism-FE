@@ -44,7 +44,7 @@ class ValueForm extends Component {
             name="name"
           />
          
-          <button type="submit">Add to the Values</button>
+          <button type="submit">Add to Values</button>
         </form>
       </div>
     );

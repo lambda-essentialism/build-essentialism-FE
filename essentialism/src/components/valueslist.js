@@ -5,6 +5,10 @@ import {getData} from '../actions/index'
 import ValueForm from './addvalue'
 import Toggle from './toggle'
 import Todo from './todo';
+import {Link} from 'react-router-dom'
+import DashIcon from './dashboard.svg'
+import ProjectsIcon from './projects.svg'
+import ValuesIcon from './values.svg'
 
 
 class ValuesList extends React.Component {
@@ -40,6 +44,14 @@ class ValuesList extends React.Component {
       return (
      
       <div><ValueForm/>
+      <div className='dashmenu'>
+
+<Link className='dash-link' to='/dashboard'><img alt='dash' src={DashIcon} className='dash-icon' id='dashicon'></img> ESSE Dashboard</Link>
+<Link className='dash-link' to='/currentprojects'><img alt='projects' src={ProjectsIcon} className='dash-icon'></img>  Current Projects</Link>
+<Link className='dash-link' to='/values'><img alt='values' src={ValuesIcon} className='dash-icon'></img>  Essential Values</Link>
+
+
+</div> 
           <div className='essentialapp'>
             {this.props.values.map(value => {
               return (

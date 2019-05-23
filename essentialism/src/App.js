@@ -6,6 +6,7 @@ import Login from './components/login2';
 //import PrivateRoute from './components/privateroute'
 import ValuesList from './components/valueslist';
 import RegisterPage from './components/registration';
+import Dashboard from './components/dashboard';
 //import Toggle from './components/toggle'
 //import Todo from './components/todo'
 
@@ -13,19 +14,20 @@ import RegisterPage from './components/registration';
 function App() {
   return (
     <Router><div className="App">
-
-      <header><div className='logo'><div className='esse'><div>ES</div><div>SE</div></div></div>
+<header><div className='logo'><div className='esse'><div>ES</div><div>SE</div></div></div>
       <nav><Link className='link' to='//essentialism-jason.netlify.com/#home' onClick='https://essentialism-jason.netlify.com/#home' >Home</Link>
       <Link className='link' to='//essentialism-jason.netlify.com/#about' onClick='https://essentialism-jason.netlify.com/#about'>About Us</Link>
       <Link className='link' to=''>Contact</Link>
       <Link className='link' to='/'>Sign In</Link>
       <Link className='link' to='/registration'>Join</Link></nav></header>
       
+      
      
     <div className='login-page'> <Route exact path='/' component={Login}/></div>
     <div className='registration-page'><Route  path='/registration' component={RegisterPage}/></div> 
      
     <Route exact path='/values' component={ValuesList}/>
+    <Route path='/dashboard' component={Dashboard}/>
 
  
 
@@ -42,3 +44,11 @@ export default App;
   <Route  path='/signup' component={Signup}></Route>
   <Link to='/signup'>Sign Up</Link>*/
 //<Link to='/values'>Values</Link>
+
+
+/* <header><div className='logo'><div className='esse'><div>ES</div><div>SE</div></div></div>
+      <nav><Link className='link' to='//essentialism-jason.netlify.com/#home' onClick='https://essentialism-jason.netlify.com/#home' >Home</Link>
+      <Link className='link' to='//essentialism-jason.netlify.com/#about' onClick='https://essentialism-jason.netlify.com/#about'>About Us</Link>
+      <Link className='link' to=''>Contact</Link>
+      <Link className='link' to='/'>Sign In</Link>
+      <Link className='link' to='/registration'>Join</Link></nav></header> */

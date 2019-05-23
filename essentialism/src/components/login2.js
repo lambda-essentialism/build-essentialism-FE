@@ -5,6 +5,7 @@ import '../App.css'
 import Register from './nextarrow1.png'
 import axios from 'axios'
 //import { login } from '../actions';
+import {withRouter} from 'react-router-dom'
 
 
 const API = 'https://lambda-essentialism-backend.herokuapp.com';
@@ -55,7 +56,9 @@ const headers = {
             }
           })
         )
-        .then(res => console.log(res.data))
+        .then(res => {console.log(res.data)
+        this.props.history.push("/values");}
+        )
         .catch(err => console.log(err));
 
     }
@@ -67,6 +70,7 @@ const headers = {
 
     render() {
       return (
+        
         <div className="login-form">
           <h1 className='welcome-back'>Welcome Back!</h1>
           <form className="form" onSubmit={this.onSubmit}>
@@ -97,4 +101,4 @@ const headers = {
     }
   }
 
-  export default Login;
+  export default withRouter(Login);
