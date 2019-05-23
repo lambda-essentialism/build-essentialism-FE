@@ -65,6 +65,8 @@ nav{
   height:1000px;
 }
 
+/*REGISTRATION*/
+
 .registration-page{
  /* border:solid red;*/
   padding-bottom:30px;
@@ -161,6 +163,7 @@ nav{
   margin-top:20px;
 }
 
+/*LOGIN*/
 
 .welcome-back {
 	height: 88px;
@@ -217,10 +220,67 @@ nav{
  border:solid red;
 }*/
 
+/* APP */
 
+
+.dashboardheader{
+  border-bottom: 2px solid #979797;
+  width:800px;
+  margin:auto;
+  padding-top:10px;
+  padding-bottom:10px;
+  display:flex;
+  justify-content: flex-start;
+  height: 33px;
+  color: #2D283D;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+    
+  
+}
+
+.dashboard{
+  /*border:solid blue;*/
+  background:white;
+  
+}
+
+.dashmenu{
+ /*border:solid red;*/
+  display:flex;
+  flex-direction: column;
+ width:160px;
+ padding:20px 20px 20px 20px;
+
+}
+
+/*#dashicon{
+  border:solid blue;
+  /*margin-right:25%;
+}*/
+
+.dash-icon{
+  background:#FFBA5A;
+  height:20px;
+  
+}
+
+.dash-link{
+  text-decoration:none;
+  color: #2D283D;	font-family: Arial;	font-size: 15px;
+  font-weight: bold;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid #FFBA5A;
+}
 
 .item.completed{
   text-decoration: line-through;
+}
+
+.addvalue{
+  /*border:solid blue;*/
 }
 
 .essentialapp{
@@ -232,8 +292,16 @@ nav{
  flex-flow: wrap;
   width:820px;
   margin:auto;
-  height:1000px;
+  height:1165px;
+  position: relative;
+  bottom:170px;
 }
+
+/*.essentialvaluesheader{
+  border:solid white;
+  width:800px;
+  margin:auto;
+}*/
 
 .value-btn{
   /*border:solid blue;*/

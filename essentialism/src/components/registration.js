@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 //import { connect } from 'react-redux';
 import '../App.css';
 //import axios from 'axios'
@@ -7,7 +7,7 @@ import Register from './nextarrow1.png';
 //import {login} from '../actions/index'
 import axios from 'axios'
 
-const API = 'https://lambda-essentialism-backend.herokuapp.com/api';
+const API = 'https://lambda-essentialism-backend.herokuapp.com'
 
 class RegisterPage extends React.Component {
     constructor(props) {
@@ -45,11 +45,17 @@ class RegisterPage extends React.Component {
 
        
         axios
-        .post(`${API}/register`, {
-        username: 'testuser',
-        password: 'password'
+        .post(`${API}/api/register`, {
+            firstname:this.state.firstname,
+            lastname:this.state.lastname,
+            email:this.state.email,
+            username: this.state.username,
+            password: this.state.password
     })
-        .then(res => console.log(res))
+    .then(res =>{ console.log(res)
+        this.props.history.push("/values");
+        
+         })
          .catch(err => console.log(err));
         }
 
@@ -118,7 +124,7 @@ class RegisterPage extends React.Component {
     }
 }
 
-export default RegisterPage;
+export default withRouter(RegisterPage);
 
 
 
@@ -128,3 +134,9 @@ export default RegisterPage;
         if (user.firstName && user.lastName && user.username && user.password) {
             dispatch(login.register(user));
         }*/
+
+
+      /*  .then(res =>{ console.log(res)
+            this.props.history.push("/values");
+            
+             })*/
