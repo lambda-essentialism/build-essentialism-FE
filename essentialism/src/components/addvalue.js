@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {addValue} from '../actions'
+import '../App.css'
 
 
 class ValueForm extends Component {
@@ -44,7 +45,7 @@ class ValueForm extends Component {
             name="name"
           />
          
-          <button type="submit">Add to Values</button>
+          <button className='addvaluesbtn' type="submit">Add to Values</button>
         </form>
       </div>
     );

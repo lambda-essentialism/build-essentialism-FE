@@ -22,6 +22,7 @@ const queryString = Object.keys(reqData)
 
 const headers = {
   url: `${API}/oauth/token`,
+  mode: 'no-cors',
   method: 'post',
   withCredentials: true,
   auth: { username: 'lambda-client', password: 'lambda-secret' },

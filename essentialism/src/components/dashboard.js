@@ -22,6 +22,21 @@ class Dashboard extends Component {
 
                  </div>
 
+                 <div className='topvalues'>
+
+                     <h1 className='topvaluesheader'>Top 3 Values</h1>
+
+                <div className='topvaluecontainer'>
+
+                     <div className='topvalue'>Value 1</div>
+                     <div className='topvalue'>Value 2</div>
+                     <div className='topvalue'>Value 3</div>
+
+                     </div>
+
+
+                 </div>
+
             </div></Route>
         )
     }

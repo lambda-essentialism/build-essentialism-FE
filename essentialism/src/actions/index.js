@@ -6,13 +6,13 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 //const API = 'https://lambda-essentialism-backend.herokuapp.com';
 
-export const login = creds => dispatch => {
+/*export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios.post('', creds).then(res => {
     localStorage.setItem('token', res.data.payload);
     dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload });
   });
-};
+};*/
 
 
 export const FETCH_DATA_START = 'FETCH_DATA_START';
@@ -44,8 +44,8 @@ export const getData = () => dispatch =>{
 export const ADD_VALUE='ADD_VALUE'
 export const ADD_VALUE_FAIL='ADD_VALUE_FAIL'
 
-export const addValue = value => dispatch =>{
-  axios.post('https://lambda-essentialism-backend.herokuapp.com/api/values/',value )
+export const addValue = valueid => dispatch =>{
+  axios.post(`https://lambda-essentialism-backend.herokuapp.com/api/value/${valueid}` )
       .then(res =>{
           dispatch({ 
               type:ADD_VALUE,
