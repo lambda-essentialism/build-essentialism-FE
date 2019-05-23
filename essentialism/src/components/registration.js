@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 //import axios from 'axios'
 import Register from './nextarrow1.png';
-import {login} from '../actions/index'
+//import {login} from '../actions/index'
+import axios from 'axios'
+
+const API = 'https://lambda-essentialism-backend.herokuapp.com/api';
 
 class RegisterPage extends React.Component {
     constructor(props) {
@@ -40,13 +43,15 @@ class RegisterPage extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        this.setState({ submitted: true });
-        const { user } = this.state;
-        const { dispatch } = this.props;
-        if (user.firstName && user.lastName && user.username && user.password) {
-            dispatch(login.register(user));
+       
+        axios
+        .post(`${API}/register`, {
+        username: 'testuser',
+        password: 'password'
+    })
+        .then(res => console.log(res))
+         .catch(err => console.log(err));
         }
-    }
 
   
 
@@ -117,3 +122,9 @@ export default RegisterPage;
 
 
 
+ /*this.setState({ submitted: true });
+        const { user } = this.state;
+        const { dispatch } = this.props;
+        if (user.firstName && user.lastName && user.username && user.password) {
+            dispatch(login.register(user));
+        }*/
