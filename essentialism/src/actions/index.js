@@ -1,5 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
+const API = 'https://lambda-essentialism-backend.herokuapp.com';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -14,35 +15,28 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
   });
 };*/
 
-
 export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 export const USER_UNAUTHORIZED = 'FETCH_DATA_FAILURE';
 
-
-export const getData = () => dispatch =>{
-  dispatch({type: FETCH_DATA_START})
-  axios.get('https://lambda-essentialism-backend.herokuapp.com/api/values/')
-  .then(res =>{
-
+export const getData = () => dispatch => {
+  dispatch({ type: FETCH_DATA_START });
+  axios
+    .get(`${API}/api/values`)
+    .then(res => {
       dispatch({
-          type:FETCH_DATA_SUCCESS,
-          payload: res.data })
-  })
-  .catch(err =>{
+        type: FETCH_DATA_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(err => {
       dispatch({
-          type:FETCH_DATA_FAILURE,
-          payload: err
-
-      })
-  })
-  
-  
- 
-}
-
-const API = 'https://lambda-essentialism-backend.herokuapp.com';
+        type: FETCH_DATA_FAILURE,
+        payload: err
+      });
+    });
+};
 
 const reqData = {
   username: 'admin',
@@ -62,8 +56,8 @@ const headers = {
   auth: { username: 'lambda-client', password: 'lambda-secret' },
   data: queryString
 };
-export const ADD_VALUE='ADD_VALUE'
-export const ADD_VALUE_FAIL='ADD_VALUE_FAIL'
+export const ADD_VALUE = 'ADD_VALUE';
+export const ADD_VALUE_FAIL = 'ADD_VALUE_FAIL';
 
 /*export const addValue = valueid => dispatch =>{
   axios.request(headers)
@@ -76,10 +70,10 @@ export const ADD_VALUE_FAIL='ADD_VALUE_FAIL'
     })
   )
       .then(res =>{
-          dispatch({ 
+          dispatch({
               type:ADD_VALUE,
-              payload: res.data 
-          
+              payload: res.data
+
           })
       })
       .catch(err =>
@@ -88,67 +82,61 @@ export const ADD_VALUE_FAIL='ADD_VALUE_FAIL'
           payload:err
         })
         )
-      
 
-  
+
+
 }*/
 
-export const addValue = (valueid) => dispatch =>{
-  axios.post(`https://lambda-essentialism-backend.herokuapp.com/api/${valueid}/`, valueid, {
-    headers: { Authorization: localStorage.getItem('token') }
-  })
-      .then(res =>{
-          dispatch({ 
-              type:ADD_VALUE,
-              payload: res.data 
-          
-          })
-      })
-      .catch(err =>
-        dispatch({
-          type:ADD_VALUE_FAIL,
-          payload:err
-        })
-        )
-      
-
-  
-}
-
-
-
-export const DELETE_VALUE='DELETE_VALUE'
-export const DELETE_VALUE_FAIL='DELETE_VALUE_FAIL'
-
-export const deleteValue = valueid => dispatch =>{
-  axios.request(headers)
-  .then(res => res.data.access_token)
-  .then(token =>
-    axios.delete(`${API}/api/value/${valueid}`, {
-      headers: {
-        Authorization: 'Bearer ' + token
+export const addValue = valueid => dispatch => {
+  axios
+    .post(
+      `https://lambda-essentialism-backend.herokuapp.com/api/${valueid}/`,
+      valueid,
+      {
+        headers: { Authorization: localStorage.getItem('token') }
       }
+    )
+    .then(res => {
+      dispatch({
+        type: ADD_VALUE,
+        payload: res.data
+      });
     })
-  )
-      .then(res =>{
-          dispatch({ 
-              type:DELETE_VALUE,
-              payload: res.data 
-          
-          })
+    .catch(err =>
+      dispatch({
+        type: ADD_VALUE_FAIL,
+        payload: err
       })
-      .catch(err =>
-        dispatch({
-          type:DELETE_VALUE_FAIL,
-          payload:err
-        })
-        )
-      
+    );
+};
 
-  
-}
+export const DELETE_VALUE = 'DELETE_VALUE';
+export const DELETE_VALUE_FAIL = 'DELETE_VALUE_FAIL';
 
-
+export const deleteValue = valueid => dispatch => {
+  axios
+    .request(headers)
+    .then(res => res.data.access_token)
+    .then(token =>
+      axios.delete(`${API}/api/value/${valueid}`, {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      })
+    )
+    .then(res => {
+      dispatch({
+        type: DELETE_VALUE,
+        payload: res.data
+      });
+    })
+    .catch(err =>
+      dispatch({
+        type: DELETE_VALUE_FAIL,
+        payload: err
+      })
+    );
+};
 
 /*export const ADD_TODO = 'ADD_TODO';
 export const TODO_COMPLETE = 'TODO_COMPLETE';
