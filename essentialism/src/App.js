@@ -9,6 +9,7 @@ import RegisterPage from './components/registration';
 import Dashboard from './components/dashboard';
 //import Toggle from './components/toggle'
 //import Todo from './components/todo'
+import CurrentProjects from './components/currentprojects'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
      
     <Route exact path='/values' component={ValuesList}/>
     <Route path='/dashboard' component={Dashboard}/>
+    <Route path='/currentprojects' component={CurrentProjects}/>
 
  
 
