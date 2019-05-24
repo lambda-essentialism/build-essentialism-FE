@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {addValue} from '../actions'
+import '../App.css'
 
 
 class ValueForm extends Component {
@@ -15,7 +16,7 @@ class ValueForm extends Component {
   changeHandler=ev=>{
     ev.persist();
     let value=ev.target.value;
-    if(ev.target.name==='id'){
+    if(ev.target.name==='title'){
       value=parseInt(value,10);
     }
 
@@ -44,7 +45,7 @@ class ValueForm extends Component {
             name="name"
           />
          
-          <button type="submit">Add to Values</button>
+          <button className='addvaluesbtn' type="submit">Add to Values</button>
         </form>
       </div>
     );

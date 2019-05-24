@@ -4,7 +4,7 @@ import {
     LOGIN_SUCCESS,
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
-    ADD_VALUE
+    ADD_VALUE,DELETE_VALUE
    
   } from '../actions';
   
@@ -47,6 +47,10 @@ import {
         values: action.payload
       };
       case ADD_VALUE:
+        return{
+          values:action.payload
+        }
+      case DELETE_VALUE:
         return{
           values:action.payload
         }

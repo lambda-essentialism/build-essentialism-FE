@@ -255,6 +255,54 @@ nav{
 
 }
 
+.topvalues{
+ 
+  height: 350px;
+  width:800px;
+  margin:auto;
+  border-radius: 20px;
+  box-shadow: 0 0 7px 0 rgba(0,0,0,0.5);
+  position: relative;
+  bottom:100px;
+}
+
+.topvaluesheader{
+  height: 33px;	
+  width: 360px;	
+  color: #2D283D;	
+  font-family: Arial;	
+  font-size: 30px;	
+  font-weight: bold;	
+  line-height: 34px;
+  border-bottom: 2px solid #979797;
+  position: relative;
+  left:27%;
+  padding-top:10px;
+  padding-bottom:10px;
+
+}
+
+.topvaluecontainer{
+  /*border:solid black;*/
+  display:flex;
+  justify-content: center;
+  padding-top:15px;
+}
+
+.topvalue{
+  
+    height: 169px;
+    width: 159px;
+   /* transform: rotate(180deg);*/
+    border-radius: 28px;
+    background-color: #FFBA5A;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    margin:10px 10px 10px 10px;
+    
+   
+  
+}
+
 /*#dashicon{
   border:solid blue;
   /*margin-right:25%;
@@ -276,11 +324,29 @@ nav{
 }
 
 .item.completed{
-  text-decoration: line-through;
+  text-decoration: line-through white;
+  
 }
 
 .addvalue{
   /*border:solid blue;*/
+}
+
+.addvaluesbtn{
+  border-radius: 16px;
+  background-color:#FFBA5A;
+  color:  #FCF9ED;
+	font-family: Arial;
+  font-weight: bold;
+  cursor: pointer;
+  border:2px solid #FCF9ED;
+
+}
+
+.addvaluesbtn:hover{
+  background-color:#FCF9ED;
+  color:  #FFBA5A;
+
 }
 
 .essentialapp{
@@ -317,6 +383,13 @@ nav{
   height:55px;
   cursor: pointer;
  border:2px solid #FCF9ED;
+
+}
+
+.value-btn:hover{
+  background-color:#FCF9ED;
+  color:  #FFBA5A;
+
 
 }
 
