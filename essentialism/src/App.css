@@ -161,6 +161,8 @@ nav{
   cursor: pointer;
   /*border:solid blue;*/
   margin-top:20px;
+  position: relative;
+  left:120px;
 }
 
 /*LOGIN*/
