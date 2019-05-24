@@ -41,11 +41,62 @@ export const getData = () => dispatch =>{
   
  
 }
+
+const API = 'https://lambda-essentialism-backend.herokuapp.com';
+
+const reqData = {
+  username: 'admin',
+  password: 'password',
+  grant_type: 'password'
+};
+
+const queryString = Object.keys(reqData)
+  .map(key => key + '=' + reqData[key])
+  .join('&');
+
+const headers = {
+  url: `${API}/oauth/token`,
+  mode: 'no-cors',
+  method: 'post',
+  withCredentials: true,
+  auth: { username: 'lambda-client', password: 'lambda-secret' },
+  data: queryString
+};
 export const ADD_VALUE='ADD_VALUE'
 export const ADD_VALUE_FAIL='ADD_VALUE_FAIL'
 
-export const addValue = valueid => dispatch =>{
-  axios.post(`https://lambda-essentialism-backend.herokuapp.com/api/value/${valueid}` )
+/*export const addValue = valueid => dispatch =>{
+  axios.request(headers)
+  .then(res => res.data.access_token)
+  .then(token =>
+    axios.post(`${API}/api/value/${valueid}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  )
+      .then(res =>{
+          dispatch({ 
+              type:ADD_VALUE,
+              payload: res.data 
+          
+          })
+      })
+      .catch(err =>
+        dispatch({
+          type:ADD_VALUE_FAIL,
+          payload:err
+        })
+        )
+      
+
+  
+}*/
+
+export const addValue = (valueid) => dispatch =>{
+  axios.post(`https://lambda-essentialism-backend.herokuapp.com/api/${valueid}/`, valueid, {
+    headers: { Authorization: localStorage.getItem('token') }
+  })
       .then(res =>{
           dispatch({ 
               type:ADD_VALUE,
@@ -65,7 +116,41 @@ export const addValue = valueid => dispatch =>{
 }
 
 
-export const ADD_TODO = 'ADD_TODO';
+
+export const DELETE_VALUE='DELETE_VALUE'
+export const DELETE_VALUE_FAIL='DELETE_VALUE_FAIL'
+
+export const deleteValue = valueid => dispatch =>{
+  axios.request(headers)
+  .then(res => res.data.access_token)
+  .then(token =>
+    axios.delete(`${API}/api/value/${valueid}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  )
+      .then(res =>{
+          dispatch({ 
+              type:DELETE_VALUE,
+              payload: res.data 
+          
+          })
+      })
+      .catch(err =>
+        dispatch({
+          type:DELETE_VALUE_FAIL,
+          payload:err
+        })
+        )
+      
+
+  
+}
+
+
+
+/*export const ADD_TODO = 'ADD_TODO';
 export const TODO_COMPLETE = 'TODO_COMPLETE';
 
 export const addTodo = (todo) => {
@@ -80,4 +165,4 @@ export const toggleComplete = (index) => {
     type: TODO_COMPLETE,
     payload: index
   };
-};
+};*/

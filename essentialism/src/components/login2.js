@@ -8,7 +8,8 @@ import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 
 
-const API = 'https://lambda-essentialism-backend.herokuapp.com';
+
+/*const API = 'https://lambda-essentialism-backend.herokuapp.com';
 
 const reqData = {
   username: 'admin',
@@ -62,12 +63,81 @@ const headers = {
         )
         .catch(err => console.log(err));
 
-    }
- 
-  
-  
+    }*/
+    const API = 'https://lambda-essentialism-backend.herokuapp.com';
 
+const reqData = {
+  username: 'admin',
+  password: 'password',
+  grant_type: 'password'
+};
 
+const queryString = Object.keys(reqData)
+  .map(key => key + '=' + reqData[key])
+  .join('&');
+
+const headers = {
+  url: `${API}/oauth/token`,
+  method: 'post',
+  withCredentials: true,
+  auth: { username: 'lambda-client', password: 'lambda-secret' },
+  data: queryString
+};
+
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      token: ''
+    };
+  }
+
+  handleChange = event => {
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  onSubmit = event => {
+    event.preventDefault();
+
+    fetch(`${API}/oauth/token`, {
+      body: `grant_type=password&username=${this.state.username}&password=${
+        this.state.password
+      }`,
+      headers: {
+        Authorization: 'Basic bGFtYmRhLWNsaWVudDpsYW1iZGEtc2VjcmV0',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST'
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ token: data.access_token });
+        console.log(data);
+      })
+      .then(() => {
+        axios
+          .request(headers)
+          .then(res => res.data.access_token)
+          .then(token =>
+            axios.get(`${API}/api/values`, {
+              headers: {
+                Authorization: 'Bearer ' + this.state.token
+              }
+            })
+          )
+          .then(res => {console.log(res.data)
+            this.props.history.push("/dashboard");})
+          .catch(err => console.log(err));
+      })
+      .catch(console.log);
+  };
+
+    
 
     render() {
       return (
@@ -102,4 +172,5 @@ const headers = {
     }
   }
 
+  //export default withRouter(Login);
   export default withRouter(Login);
