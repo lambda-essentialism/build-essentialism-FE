@@ -3,7 +3,7 @@ import { BrowserRouter as Router,Route,Link } from "react-router-dom";
 import './App.css';
 //import Values from './components/values';
 import Login from './components/login2';
-import PrivateRoute from './components/privateroute'
+//import PrivateRoute from './components/privateroute'
 import ValuesList from './components/valueslist';
 import RegisterPage from './components/registration';
 import Dashboard from './components/dashboard';
@@ -26,8 +26,8 @@ function App() {
     <div className='login-page'> <Route exact path='/' component={Login}/></div>
     <div className='registration-page'><Route  path='/registration' component={RegisterPage}/></div> 
      
-    <PrivateRoute exact path='/values' component={ValuesList}/>
-    <PrivateRoute path='/dashboard' component={Dashboard}/>
+    <Route exact path='/values' component={ValuesList}/>
+    <Route path='/dashboard' component={Dashboard}/>
 
  
 
