@@ -9,7 +9,7 @@ const Value = props => {
     return (
       <div className="value">
         <h3>{props.title}</h3>
-        <button onClick={ () => props.deleteValue(props.valueid)}>Remove</button>
+      
         
       
  
@@ -24,3 +24,5 @@ const Value = props => {
   };
   
   export default Value;
+
+ // <button onClick={ () => props.deleteValue(props.valueid)}>Remove</button>

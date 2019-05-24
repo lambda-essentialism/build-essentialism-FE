@@ -11,6 +11,8 @@ import ProjectsIcon from './projects.svg'
 import ValuesIcon from './values.svg'
 
 
+
+
 class ValuesList extends React.Component {
     constructor(){
         super();
@@ -49,7 +51,7 @@ class ValuesList extends React.Component {
 <Link className='dash-link' to='/dashboard'><img alt='dash' src={DashIcon} className='dash-icon' id='dashicon'></img> ESSE Dashboard</Link>
 <Link className='dash-link' to='/currentprojects'><img alt='projects' src={ProjectsIcon} className='dash-icon'></img>  Current Projects</Link>
 <Link className='dash-link' to='/values'><img alt='values' src={ValuesIcon} className='dash-icon'></img>  Essential Values</Link>
-
+<Link to='/'><button className='addvaluesbtn'>Log Out</button></Link>
 
 </div> 
           <div className='essentialapp'>
