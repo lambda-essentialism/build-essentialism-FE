@@ -85,11 +85,7 @@ const headers = {
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: '',
-      password: '',
-      token: ''
-    };
+    this.state = { username: '', password: '', token: '' };
   }
 
   handleChange = event => {
@@ -119,7 +115,7 @@ class Login extends React.Component {
         if (data.error) {
           console.log(data.error);
         } else {
-          document.cookie = `my_cookie_name=${data.access_token}`;
+          document.cookie = `client_token=${data.access_token}`;
           this.props.history.push('/dashboard');
         }
       })
